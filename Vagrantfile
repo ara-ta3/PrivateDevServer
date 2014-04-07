@@ -17,14 +17,13 @@ Vagrant.configure("2") do |config|
     config.ssh.timeout   = 120
 
     config.vm.provision :chef_solo do |chef|
-        chef.cookbooks_path = "./cookbooks"
-        chef.add_recipe "yum::ius"
+        chef.cookbooks_path = ["./cookbooks", "./site-cookbooks"]
+        chef.add_recipe "yum::epel"
+        chef.add_recipe "yum::remi"
+        chef.add_recipe "zsh"
         chef.add_recipe "php"
         chef.add_recipe "apache2"
         chef.add_recipe "apache2::mod_php5"
-        chef.add_recipe "mysql"
-        chef.add_recipe "mysql::client"
-        chef.add_recipe "mysql::server"
         chef.add_recipe "vim"
 
         chef.run_list = [
@@ -32,8 +31,9 @@ Vagrant.configure("2") do |config|
             "php",
             "apache2",
             "apache2::mod_php5",
-            "mysql::client",
-            "mysql::server"
+            "zsh",
+            "mysql::server",
+            "mysql::client"
         ]
 
         chef.json = {
