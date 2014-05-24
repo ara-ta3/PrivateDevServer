@@ -1,6 +1,6 @@
 #設定例
-index.number_of_replicas: 0　#レプリカセットの数
-index.number_of_shards: 1　　#シャードの数
+index.number_of_replicas: 0 #レプリカセットの数
+index.number_of_shards: 1 #シャードの数
 # 
-path.data: /data　　　　　　 #index(データ)の保存先
-path.logs: /var/log/elasticsearch/logs　#ログの保存先
+path.data: /data #index(データ)の保存先
+path.logs: /var/log/elasticsearch/logs #ログの保存先
