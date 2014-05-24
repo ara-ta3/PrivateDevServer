@@ -1,3 +1,4 @@
+git config --global color.ui true
 if [ -e $HOME/dotfiles ]; then
     echo "dotfiles are already cloned"
 else
