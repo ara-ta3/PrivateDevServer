@@ -2,8 +2,10 @@ rpm -ivh http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/6/x86_64/ep
 rpm -ivh http://dl.iuscommunity.org/pub/ius/stable/Redhat/6/x86_64/ius-release-1.0-11.ius.el6.noarch.rpm
 yum update
 yum install -y openssl zsh vim git
-which mysql
+yum install -y mongodb-server mongodb
+yum install -y rpm-build redhat-rpm-config gcc  gcc-c++ make yum install openssl-devel snappy-devel v8-devel boost-devel python-devel python-nose scons pcre-devel readline-devel libpcap-devel gperftools-devel
 
+which mysql
 if test $? -ne 1
 then
     yum install -y mysql-server mysql mysql-devel
@@ -15,7 +17,6 @@ then
     yum install -y java-1.7.0
 fi
 
-which php
 yum install -y php54-cli php54-pdo php54-mysql php54-common php54 php54-cgi php54-fpm php54-devel php54-gd php54-mbstring php54-odbc php54-pear php54-snmp php54-bcmath php54-xmlrpc php54-tidy php54-xml php54-mssql php54-soap php54-pgsql
 
 yum install -y httpd
@@ -37,4 +38,5 @@ cp -f /vagrant/config/httpd/httpd-vhosts.conf /etc/httpd/conf.d/
 usermod -s /bin/zsh vagrant
 service httpd restart
 service mysqld restart
+service mongod restart
 service iptables stop
