@@ -33,6 +33,7 @@ then
     cd Gauche-0.9.3.3;./configure;make;make install;
 fi
 
+cp -f /vagrant/config/httpd/httpd-vhosts.conf /etc/httpd/conf.d/
 usermod -s /bin/zsh vagrant
 service httpd restart
 service mysqld restart
