@@ -3,6 +3,7 @@
 
 $yum_install_script = <<SCRIPT
 sh /vagrant/scripts/common-install.sh
+sh /vagrant/scripts/elastic-search-install.sh
 SCRIPT
 
 $dev_local_files = <<SCRIPT
